@@ -2,7 +2,7 @@ export const profile = {
   name: "Saipranay Thandu",
   email: "thandusaipranay@gmail.com",
   linkedin: "https://www.linkedin.com/in/saipranaythandu",
-  portrait: null as string | null,
+  portrait: "/images/saipranay-portrait.png" as string | null,
   github: null as string | null,
   resume: null as string | null,
   award: {

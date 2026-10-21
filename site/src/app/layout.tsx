@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Header } from "@/components/ui/Header";
 import { profile } from "@/data/profile";
 import "./globals.css";
+import "./brand.css";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 const sans = localFont({
   src: "./fonts/manrope.woff2",
   variable: "--font-sans",
@@ -20,11 +22,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
-  title: "Saipranay Thandu — The Living Model",
+  title: "Saipranay Thandu — Beyond the Data",
   description:
     "Engineering, analytics and business. Explore Saipranay Thandu’s approach to trusted data, semantic architecture and better decisions.",
   openGraph: {
-    title: "The Living Model — Saipranay Thandu",
+    title: "Beyond the Data — Saipranay Thandu",
     description: "I engineer clarity out of complexity.",
     type: "website",
     locale: "en_US",
@@ -45,8 +47,10 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Header />
-        {children}
+        <MotionProvider>
+          <Header />
+          {children}
+        </MotionProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

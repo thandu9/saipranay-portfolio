@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { studies } from "@/data/work";
 import { Schema } from "@/components/model/Schema";
 import { CaseExhibit } from "@/components/work/CaseExhibit";
-import { Diagram } from "@/components/work/Diagram";
+import { ProjectArtwork } from "@/components/work/ProjectArtwork";
 import { Contact } from "@/components/Sections";
 export function generateStaticParams() {
   return studies.map((s) => ({ slug: s.slug }));
@@ -41,7 +41,7 @@ export default async function Study({
           <p>{s.summary}</p>
         </header>
         <div className="case-architecture">
-          <Diagram kind={s.slug} />
+          <ProjectArtwork kind={s.slug} />
           <div>
             <h2>The architecture</h2>
             <ol>

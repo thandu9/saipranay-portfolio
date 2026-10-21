@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T03:39:40.213030+00:00",
+  "title": "Design System: Beyond the Data \u2014 V4",
+  "extensions": {
+    "motion": [
+      {
+        "name": "motion-fast",
+        "value": "180ms",
+        "purpose": "Declared brand timing token."
+      },
+      {
+        "name": "motion-main",
+        "value": "450ms",
+        "purpose": "Default Motion transition."
+      },
+      {
+        "name": "motion-ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Motion for React choreography."
+      },
+      {
+        "name": "css-ease",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Retained CSS transitions."
+      },
+      {
+        "name": "noise-settled",
+        "value": "3000ms",
+        "purpose": "Clarity phase; reduced motion directly receives completed state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "brand-mobile",
+        "value": "560px"
+      },
+      {
+        "name": "brand-tablet",
+        "value": "800px"
+      },
+      {
+        "name": "brand-compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "brand-wide",
+        "value": "1600px"
+      }
+    ],
+    "shadows": []
+  },
+  "components": [
+    {
+      "name": "Hero primary",
+      "kind": "button",
+      "description": "Extracted V4 component treatment.",
+      "html": "<button class=\"ds-primary\">Explore work \u2197</button>",
+      "css": ".ds-primary{font-family:var(--font-sans,sans-serif);font-size:13px;min-height:52px;padding:12px 20px;display:inline-flex;align-items:center;border-radius:0;cursor:pointer;transition:background-color 160ms,transform 160ms;background:var(--orange,#f15a35);color:var(--ink,#11151b);border:0}.ds-primary:hover{background:#ff704c}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}",
+      "refersTo": "hero-primary"
+    },
+    {
+      "name": "Hero secondary",
+      "kind": "button",
+      "description": "Extracted V4 component treatment.",
+      "html": "<button class=\"ds-secondary\">Explore model \u2192</button>",
+      "css": ".ds-secondary{font-family:var(--font-sans,sans-serif);font-size:13px;min-height:52px;padding:12px 20px;display:inline-flex;align-items:center;border-radius:0;cursor:pointer;transition:background-color 160ms,transform 160ms;background:transparent;color:var(--ink,#11151b);border:1px solid #aeb4aa}.ds-secondary:hover{background:#e7e8df}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}",
+      "refersTo": "hero-secondary"
+    },
+    {
+      "name": "Dimension select",
+      "kind": "input",
+      "description": "Extracted V4 component treatment.",
+      "html": "<label class=\"ds-dimension\">Dim_Project<select class=\"ds-select\"><option>All projects</option><option>P-001</option></select></label>",
+      "css": ".ds-dimension{display:flex;flex-direction:column;gap:8px;background:#e2e7dc;padding:16px 14px;font-family:var(--font-sans,sans-serif);font-size:13px}.ds-select{min-height:44px;padding:6px;background:var(--paper,#f5f2eb);border:1px solid #b3bcae;border-radius:0;color:var(--ink,#11151b);font:inherit}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}"
+    },
+    {
+      "name": "Minimal navigation",
+      "kind": "nav",
+      "description": "Extracted V4 component treatment.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#model\">Model</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;gap:32px;font:13px var(--font-sans,sans-serif)}.ds-nav a{color:var(--ink,#11151b);text-decoration:none;padding:8px 0}.ds-nav a:last-child{border-bottom:1px solid currentColor}.ds-nav a:hover{color:var(--copper,#a84125)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}"
+    },
+    {
+      "name": "Gallery arrow",
+      "kind": "button",
+      "description": "Extracted V4 component treatment.",
+      "html": "<button class=\"ds-arrow\" aria-label=\"Next project\">\u2192</button>",
+      "css": ".ds-arrow{width:48px;height:48px;border-radius:50%;background:transparent;color:var(--ink,#11151b);border:1px solid #99a28f;cursor:pointer}.ds-arrow:hover:not(:disabled){background:#dce3d5}.ds-arrow:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-arrow:active{transform:scale(.98)}.ds-arrow:disabled{opacity:.4;cursor:default}",
+      "refersTo": "gallery-arrow"
+    }
+  ],
+  "narrative": {
+    "northStar": "Clarity, by design.",
+    "overview": "Saipranay Thandu is the primary identity; Beyond the Data is the creative identity. The Living Model names the signature technical explorer. Human presence and expressive typography establish connection, then ordered technical exhibits make the work inspectable. Warm reading surfaces, a brief dark transformation and concentrated forest exploration alternate energy with calm.",
+    "keyCharacteristics": [
+      "Authentic portrait and unmistakable personal identity.",
+      "Editorial scale with restrained technical detail.",
+      "Deterministic transformation followed by stillness.",
+      "Native, inspectable interactions and factual evidence."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve the authentic portrait and keep type away from facial details.",
+      "Do make synthetic diagrams and self-reported outcomes explicit.",
+      "Do provide visible focus, keyboard operation and completed reduced-motion states.",
+      "Do retain typed content, URL state, case-study routes and functional schema filters."
+    ],
+    "donts": [
+      "Don't retouch identity or substitute an AI-generated person.",
+      "Don't loop the noise sequence, auto-advance the gallery or trap scrolling.",
+      "Don't present the career graph as a literal database schema.",
+      "Don't publish unsupported awards, metrics, credentials, resume or GitHub links."
+    ]
+  }
+}

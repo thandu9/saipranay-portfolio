@@ -4,7 +4,7 @@ test("explorer selection, keyboard, filters, history and tour", async ({
   page,
 }) => {
   await page.goto("/");
-  const node = page.getByRole("button", { name: /02 Data Modeling/ });
+  const node = page.getByRole("button", { name: /02 Semantic Modeling/ });
   await node.focus();
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/node=modeling/);
@@ -63,7 +63,7 @@ test("synthetic exception and publication controls", async ({ page }) => {
   ).toBeVisible();
 });
 test("responsive overflow and screenshots", async ({ page }, info) => {
-  for (const width of [375, 430, 768, 1024, 1440, 1920]) {
+  for (const width of [320, 390, 768, 1280, 1440, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/?node=modeling#model");
     await expect(page.getByTestId("project-count")).toBeVisible();
@@ -85,23 +85,19 @@ test("responsive overflow and screenshots", async ({ page }, info) => {
 test("reduced motion, outbound links and accessibility", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  expect(
-    await page
-      .locator(".source-lines")
-      .evaluate((e) => getComputedStyle(e).animationName),
-  ).toBe("none");
+  await expect(page.locator("#noise")).toHaveAttribute("data-phase", "clarity");
   await expect(page.locator("#credentials a")).toHaveCount(3);
   for (const link of await page.locator("#credentials a").all()) {
     await expect(link).toHaveAttribute("target", "_blank");
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
   }
   const results = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
     .analyze();
   expect(results.violations).toEqual([]);
   await page.goto("/work/delivery-intelligence");
   const schema = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
     .analyze();
   expect(schema.violations).toEqual([]);
 });

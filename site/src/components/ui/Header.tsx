@@ -19,8 +19,8 @@ export function Header() {
   }, []);
   return (
     <header className="header">
-      <Link href="/" className="identity" aria-label="Saipranay Thandu home">
-        <span className="monogram">
+      <Link href="/" className="identity">
+        <span className="monogram" aria-hidden="true">
           st<span>.</span>
         </span>
         <span>

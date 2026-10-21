@@ -158,11 +158,11 @@ export function Credentials() {
             href={c.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${c.title} credential (opens in new tab)`}
+            
           >
             <span>
               <small>{c.issuer}</small>
-              <strong>{c.title}</strong>
+              <strong>{c.title}</strong><span className="sr-only"> (opens in new tab)</span>
             </span>
             <Arrow diagonal />
           </a>
@@ -186,7 +186,9 @@ export function Contact() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Let’s connect.
+          Let’s build something
+          <br />
+          meaningful.
           <Arrow diagonal />
         </a>
         <div className="contact-links">
@@ -202,7 +204,7 @@ export function Contact() {
       </div>
       <div className="footer-bottom">
         <span>Saipranay Thandu</span>
-        <span>The Living Model · 2026</span>
+        <span>Beyond the Data · 2026</span>
         <a href="#top">Back to top ↑</a>
       </div>
       <p className="footer-note">

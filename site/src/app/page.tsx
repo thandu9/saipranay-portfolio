@@ -1,20 +1,18 @@
 import { Hero } from "@/components/Hero";
+import { NoiseToKnowledge } from "@/components/NoiseToKnowledge";
 import { Explorer } from "@/components/model/Explorer";
-import {
-  Work,
-  Process,
-  About,
-  Credentials,
-  Contact,
-} from "@/components/Sections";
+import { Gallery } from "@/components/work/Gallery";
+import { Impact } from "@/components/Impact";
+import { About, Credentials, Contact } from "@/components/Sections";
 export default function Home() {
   return (
     <>
       <main id="main">
         <Hero />
+        <NoiseToKnowledge />
         <Explorer />
-        <Work />
-        <Process />
+        <Gallery />
+        <Impact />
         <About />
         <Credentials />
       </main>

@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "The Living Model — Saipranay Thandu";
+export const alt = "Beyond the Data — Saipranay Thandu";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -24,7 +24,7 @@ export default function Image() {
         }}
       >
         <span>Saipranay Thandu</span>
-        <span>The Living Model</span>
+        <span>Beyond the Data</span>
       </div>
       <div
         style={{
@@ -36,7 +36,7 @@ export default function Image() {
         }}
       >
         <span>I engineer clarity</span>
-        <span style={{ color: "#a64e30" }}>out of complexity.</span>
+        <span style={{ color: "#a84125" }}>out of complexity.</span>
       </div>
       <div style={{ fontSize: 24 }}>Engineering / Analytics / Business</div>
     </div>,

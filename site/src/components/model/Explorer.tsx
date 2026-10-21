@@ -41,11 +41,11 @@ export function Explorer() {
       <div className="section-heading">
         <div>
           <h2 id="model-title">
-            Nothing works
+            The Living Model.
             <br />
-            <em>in isolation.</em>
+            <em>Explore the connections.</em>
           </h2>
-          <p>Neither does my work. Follow a connection.</p>
+          <p>Six disciplines. One connected practice.</p>
         </div>
         <div className="model-mode" aria-label="Exploration mode">
           <button aria-pressed={step === null} onClick={() => choose(selected)}>
@@ -171,7 +171,7 @@ export function Explorer() {
       </div>
       {selected === "modeling" && <Schema />}
       <p className="model-disclaimer">
-        A map of my practice, not a database schema. Select Data Modeling to
+        A map of my practice, not a database schema. Select Semantic Modeling to
         explore an illustrative star schema.
       </p>
       <noscript>

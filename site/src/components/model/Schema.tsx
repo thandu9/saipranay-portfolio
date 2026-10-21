@@ -96,7 +96,16 @@ export function Schema() {
           {rows.length} of {facts.length} rows in filter context
         </span>
       </div>
-      <div className="table-scroll">
+      <p className="table-scroll-hint">
+        Scroll horizontally to inspect all eight fields.
+      </p>
+      <div
+        className="table-scroll"
+        tabIndex={0}
+        role="region"
+        aria-label="Project delivery facts; scroll horizontally for all columns"
+        onKeyDown={(event) => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); event.currentTarget.scrollLeft += event.key === "ArrowRight" ? 80 : -80; } }}
+      >
         <table>
           <caption className="sr-only">
             Synthetic project delivery facts, filtered by the selected

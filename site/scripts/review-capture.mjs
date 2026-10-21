@@ -1,0 +1,4 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch();const page=await browser.newPage({reducedMotion:'reduce'});
+for(const width of [1440,390]){await page.setViewportSize({width,height:900});await page.goto('http://127.0.0.1:3000/');await page.evaluate(()=>document.fonts.ready);for(const id of ['noise','model','work','about','credentials','contact'])await page.locator(`#${id}`).screenshot({path:`../.tools/screenshots/review-${id}-${width}.png`});await page.goto('http://127.0.0.1:3000/?node=modeling#model');await page.locator('.schema').screenshot({path:`../.tools/screenshots/review-schema-${width}.png`});for(const slug of ['geospatial-pipelines','delivery-intelligence','qualification-analytics']){await page.goto(`http://127.0.0.1:3000/work/${slug}`);await page.screenshot({path:`../.tools/screenshots/review-${slug}-${width}.png`,fullPage:true})}}
+await browser.close();

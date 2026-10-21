@@ -26,7 +26,7 @@ export const families: Family[] = [
   },
   {
     id: "modeling",
-    title: "Data Modeling",
+    title: "Semantic Modeling",
     short: "Give every metric a shared meaning.",
     outcome: "One grain. Clear relationships. Defensible measures.",
     architecture:
@@ -77,15 +77,15 @@ export const families: Family[] = [
     y: 81,
   },
   {
-    id: "experience",
-    title: "Experience & Credentials",
-    short: "The foundations behind the practice.",
-    outcome: "Working across data and analytics since 2017.",
+    id: "architecture",
+    title: "Data Architecture",
+    short: "Design for trust, reuse, and change.",
+    outcome: "Architecture makes the next decision easier.",
     architecture:
-      "A path through geospatial analysis, business intelligence, enterprise AI exploration, and transportation decision support.",
-    tools: ["Business Analytics", "Business Statistics", "DP-600"],
-    href: "#about",
-    link: "View career and credentials",
+      "Separate ingestion, transformation and semantic definitions. Preserve lineage and isolate quality failures so downstream consumers can understand what they trust.",
+    tools: ["Medallion principles", "Governance", "Lineage"],
+    href: "/work/geospatial-pipelines",
+    link: "Trace the architectural choices",
     x: 78,
     y: 81,
   },
