@@ -1,0 +1,7 @@
+.tools/
+.taste-skill/
+site/node_modules/
+site/.next/
+site/test-results/
+site/playwright-report/
+.DS_Store
