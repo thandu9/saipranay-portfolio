@@ -11,4 +11,4 @@ npm ci
 npm run dev
 ```
 
-Production preview: `npm run build`, then `npm start`.
+Production preview: `npm run build`, then `python3 -m http.server 3000 --directory out` (requires Python 3). GitHub Pages configuration and subpath details are in the root README.

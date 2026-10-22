@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint",
     "test": "tsx --test tests/data.test.ts",
     "test:e2e": "playwright test",

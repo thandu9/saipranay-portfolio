@@ -14,7 +14,7 @@ export PATH="$(dirname "$runtime_node"):$PATH"
 export NEXT_TELEMETRY_DISABLED=1
 case "${1:-dev}" in
   dev) exec "$runtime_node" node_modules/next/dist/bin/next dev --hostname 127.0.0.1 ;;
-  start) exec "$runtime_node" node_modules/next/dist/bin/next start --hostname 127.0.0.1 ;;
+  start) exec python3 -m http.server 3000 --bind 127.0.0.1 --directory out ;;
   build) exec "$runtime_node" node_modules/next/dist/bin/next build ;;
   lint) exec "$runtime_node" node_modules/eslint/bin/eslint.js . ;;
   test) exec "$runtime_node" node_modules/tsx/dist/cli.mjs --test tests/data.test.ts ;;

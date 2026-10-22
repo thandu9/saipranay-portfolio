@@ -6,6 +6,8 @@ import { Schema } from "@/components/model/Schema";
 import { CaseExhibit } from "@/components/work/CaseExhibit";
 import { ProjectArtwork } from "@/components/work/ProjectArtwork";
 import { Contact } from "@/components/Sections";
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return studies.map((s) => ({ slug: s.slug }));
 }

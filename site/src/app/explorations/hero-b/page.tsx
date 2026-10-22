@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 export const metadata = {
   title: "Hero exploration B — expressive identity",
@@ -9,7 +10,7 @@ export default function Page() {
       <Hero />
       <p className="exploration-note">
         Exploration B · Expressive personal identity.{" "}
-        <a href="/explorations/hero-a">Compare split direction →</a>
+        <Link href="/explorations/hero-a">Compare split direction →</Link>
       </p>
     </main>
   );

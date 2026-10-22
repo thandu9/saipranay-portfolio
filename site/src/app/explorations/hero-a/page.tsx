@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 export const metadata = {
   title: "Hero exploration A — split editorial",
@@ -9,7 +10,7 @@ export default function Page() {
       <Hero variant="split" />
       <p className="exploration-note">
         Exploration A · Minimal split editorial.{" "}
-        <a href="/explorations/hero-b">Compare expressive direction →</a>
+        <Link href="/explorations/hero-b">Compare expressive direction →</Link>
       </p>
     </main>
   );

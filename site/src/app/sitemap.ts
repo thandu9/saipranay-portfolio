@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import type { MetadataRoute } from "next";
 import { studies } from "@/data/work";
 export default function sitemap(): MetadataRoute.Sitemap {

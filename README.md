@@ -45,14 +45,14 @@ npm run dev
 
 Open [localhost:3000](http://localhost:3000). No environment variables are required for local development.
 
-For a production build and local preview:
+For a static production build and local preview (the preview command requires Python 3):
 
 ```sh
 npm run build
-npm start
+python3 -m http.server 3000 --directory out
 ```
 
-Optional future configuration: set `NEXT_PUBLIC_SITE_URL` to the final public origin before building. Do not commit local environment files.
+GitHub Pages uses the existing `.github/workflows/nextjs.yml`. It installs dependencies in `site/`, builds with the Pages origin and base path, and deploys `site/out`. For a manual build under a subpath, set both `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` before building and serve the export at that subpath. Do not commit local environment files.
 
 ## Checks
 

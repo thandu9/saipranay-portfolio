@@ -33,7 +33,7 @@ export function Hero({
             animate={{ opacity: 1 }}
           >
             <Image
-              src="/images/saipranay-portrait.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/saipranay-portrait.png`}
               alt="Saipranay Thandu, wearing glasses and a light blue shirt"
               width={1024}
               height={935}

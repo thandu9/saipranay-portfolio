@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { ImageResponse } from "next/og";
 export const alt = "Beyond the Data — Saipranay Thandu";
 export const size = { width: 1200, height: 630 };
