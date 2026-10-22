@@ -1,0 +1,2 @@
+import {chromium} from '@playwright/test';
+const b=await chromium.launch();const p=await b.newPage({reducedMotion:'reduce'});for(const w of [1440,390]){await p.setViewportSize({width:w,height:900});await p.goto('http://127.0.0.1:3000/');await p.evaluate(()=>document.fonts.ready);await p.screenshot({path:`../.tools/screenshots/v5-hero-${w}.png`});await p.screenshot({path:`../.tools/screenshots/v5-home-${w}.png`,fullPage:true});await p.locator('#expertise').screenshot({path:`../.tools/screenshots/v5-architecture-${w}.png`});}await b.close();

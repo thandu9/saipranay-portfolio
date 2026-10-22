@@ -17,7 +17,7 @@ const fragments = [
   { label: "expected: 4y", x: 57, y: 16, group: 3 },
   { label: "review risk", x: 89, y: 88, group: 3 },
 ];
-const labels = ["Source", "Validate", "Model", "Decide"];
+
 export function NoiseToKnowledge() {
   const ref = useRef<HTMLElement>(null);
   const canvas = useRef<HTMLDivElement>(null);
@@ -91,15 +91,54 @@ export function NoiseToKnowledge() {
         </p>
       </div>
       <div className="noise-canvas" ref={canvas} aria-hidden="true">
-        <div className="noise-frames" data-aligned={aligned}>
-          {labels.map((l, i) => (
-            <div key={l}>
-              <span>
-                {String(i + 1).padStart(2, "0")} / {l}
-              </span>
-            </div>
+        <svg
+          className="neural-flow"
+          viewBox="0 0 1000 300"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="neural">
+              <stop stopColor="#fb7349" />
+              <stop offset=".5" stopColor="#c7b3ff" />
+              <stop offset="1" stopColor="#82aeef" />
+            </linearGradient>
+          </defs>
+          {Array.from({ length: 24 }, (_, i) => (
+            <motion.path
+              key={i}
+              initial={false}
+              animate={{
+                d: aligned
+                  ? `M0 ${150 + i * 2} C180 ${i * 12} 250 ${300 - i * 7} 400 150 S650 ${i * 12} 1000 ${150 + i * 2}`
+                  : `M0 ${i * 13} C200 ${300 - i * 9} 550 ${i * 12} 1000 ${300 - i * 12}`,
+                opacity: aligned ? 0.45 : 0.18,
+              }}
+              transition={{ duration: reduce ? 0 : 1.2 }}
+              stroke="url(#neural)"
+              strokeWidth=".8"
+              fill="none"
+            />
           ))}
-        </div>
+          {Array.from({ length: 64 }, (_, i) => (
+            <motion.circle
+              key={i}
+              r={i % 7 === 0 ? 3 : 1.5}
+              fill={i % 3 === 0 ? "#ff895d" : "#d4c4ff"}
+              initial={false}
+              animate={{
+                cx: aligned ? 150 + (i % 4) * 235 : ((i * 137) % 960) + 20,
+                cy: aligned
+                  ? 100 + Math.floor(i / 4) * 7
+                  : ((i * 67) % 270) + 15,
+                opacity: aligned ? 0.8 : 0.4,
+              }}
+              transition={{
+                duration: reduce ? 0 : 1,
+                delay: reduce ? 0 : i * 0.008,
+              }}
+            />
+          ))}
+        </svg>
         {fragments.map((f, i) => {
           const finalX = compact ? (f.group % 2) * 50 + 5 : f.group * 25 + 5;
           const finalY = compact
@@ -135,11 +174,17 @@ export function NoiseToKnowledge() {
           );
         })}
       </div>
+      <div className="noise-architecture-labels" aria-hidden="true">
+        <span>Source</span>
+        <span>Validate</span>
+        <span>Model</span>
+        <span>Decide</span>
+      </div>
       <div className="noise-conclusion">
         <h3>
-          Information is everywhere.
+          Complexity is inevitable.
           <br />
-          <span>Clarity is designed.</span>
+          <span>Clarity is engineered.</span>
         </h3>
         <div className="noise-actions">
           <p className="noise-state" role="status">
@@ -188,7 +233,7 @@ export function NoiseToKnowledge() {
               </button>
             )}
             <Link href="/#model">
-              Enter the living model <Arrow />
+              Explore the architecture <Arrow />
             </Link>
           </div>
         </div>

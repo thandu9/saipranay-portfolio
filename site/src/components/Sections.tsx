@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { studies } from "@/data/work";
-import { career, credentials, profile } from "@/data/profile";
+import { career, careerDetails, credentials, profile } from "@/data/profile";
 import { Arrow } from "./ui/Arrow";
 import { Diagram } from "./work/Diagram";
 export function Work() {
@@ -90,52 +90,47 @@ export function Process() {
 }
 export function About() {
   return (
-    <section className="about section" id="about">
-      <div className="about-intro">
+    <section className="experience-section section" id="experience">
+      <div className="experience-intro">
+        <p className="eyebrow">THE CONNECTIVE THREAD · 7+ YEARS</p>
         <h2>
-          The connective
+          Engineering depth.
           <br />
-          <em>thread.</em>
+          <em>Business perspective.</em>
         </h2>
         <p>
-          I work at the intersection of engineering, analytics and
-          business—where technical choices become practical decisions.
-        </p>
-        <p>
-          My experience spans geospatial data, business intelligence and
-          transportation decision support. The common thread is clarity.
+          Business Analyst and Analytics Engineer across data engineering,
+          financial analytics, enterprise GIS and business intelligence.
         </p>
         <div className="education">
           <h3>Education</h3>
           <p>
-            <strong>Master’s · Business Analytics</strong>
+            <strong>MS Business Analytics</strong>
             <br />
-            Sacred Heart University · Jan 2023 – Mar 2024
+            Sacred Heart University · March 2024
           </p>
           <p>
-            <strong>BBA · Business Statistics</strong>
+            <strong>BBA</strong>
             <br />
-            Osmania University
+            Osmania University · August 2017
           </p>
         </div>
       </div>
-      <div className="timeline">
-        {career.map(([year, title, company, dates]) => (
-          <article key={title}>
-            <span className="timeline-year">{year}</span>
-            <h3>{title}</h3>
-            <p>{company}</p>
-            <small>{dates}</small>
-          </article>
+      <div className="career-accordion">
+        {career.map(([year, title, company, dates], i) => (
+          <details key={company} open={i === 0}>
+            <summary>
+              <span>{year}</span>
+              <h3>{company}</h3>
+              <p>{title}</p>
+              <b aria-hidden="true">+</b>
+            </summary>
+            <div>
+              <small>{dates}</small>
+              <p>{careerDetails[i]}</p>
+            </div>
+          </details>
         ))}
-        <details>
-          <summary>Earlier experience</summary>
-          <p>
-            Business Development Intern · EThames Business School, Hyderabad
-            <br />
-            January 2017 – June 2017
-          </p>
-        </details>
       </div>
     </section>
   );
@@ -149,7 +144,7 @@ export function Credentials() {
           <br />
           <em>with evidence.</em>
         </h2>
-        <p>Explore the issuer-provided credential records.</p>
+        <p>Credentials & recognition. Explore the linked records.</p>
       </div>
       <div className="credential-list">
         {credentials.map((c) => (
@@ -158,11 +153,11 @@ export function Credentials() {
             href={c.url}
             target="_blank"
             rel="noopener noreferrer"
-            
           >
             <span>
               <small>{c.issuer}</small>
-              <strong>{c.title}</strong><span className="sr-only"> (opens in new tab)</span>
+              <strong>{c.title}</strong>
+              <span className="sr-only"> (opens in new tab)</span>
             </span>
             <Arrow diagonal />
           </a>
@@ -175,20 +170,14 @@ export function Contact() {
   return (
     <footer className="contact section" id="contact">
       <div className="contact-top">
-        <p>
-          Have a complex problem
-          <br />
-          that needs a clearer model?
-        </p>
+        <p>Interested in my work?</p>
         <a
           className="contact-title"
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Let’s build something
-          <br />
-          meaningful.
+          Let’s connect.
           <Arrow diagonal />
         </a>
         <div className="contact-links">

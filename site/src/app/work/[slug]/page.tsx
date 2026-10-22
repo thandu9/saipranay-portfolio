@@ -32,8 +32,11 @@ export default async function Study({
   return (
     <>
       <main id="main" className="case-page">
-        <Link className="back-link" href={`/?node=${s.model}#model`}>
-          ← Back to model
+        <Link
+          className="back-link"
+          href={`/?stage=${s.model === "engineering" ? "ingestion" : s.model === "modeling" ? "semantic" : "decisions"}#expertise`}
+        >
+          ← Back to architecture
         </Link>
         <header className="case-heading">
           <p>{s.category}</p>
@@ -90,7 +93,9 @@ export default async function Study({
           </div>
         </div>
         <div className="case-next">
-          <Link href={`/?node=${s.model}#model`}>
+          <Link
+            href={`/?stage=${s.model === "engineering" ? "ingestion" : s.model === "modeling" ? "semantic" : "decisions"}#expertise`}
+          >
             ← Return to the living model
           </Link>
           <Link href={`/work/${studies[(studies.indexOf(s) + 1) % 3].slug}`}>

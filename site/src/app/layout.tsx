@@ -4,6 +4,7 @@ import { Header } from "@/components/ui/Header";
 import { profile } from "@/data/profile";
 import "./globals.css";
 import "./brand.css";
+import "./v5.css";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 const sans = localFont({
   src: "./fonts/manrope.woff2",

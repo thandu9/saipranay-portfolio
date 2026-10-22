@@ -31,7 +31,14 @@ export function Header() {
         </span>
       </Link>
       <nav aria-label="Main navigation">
-        {["model", "work", "about", "credentials", "contact"].map((id) => (
+        {[
+          "home",
+          "work",
+          "expertise",
+          "experience",
+          "credentials",
+          "contact",
+        ].map((id) => (
           <Link
             key={id}
             href={`/#${id}`}

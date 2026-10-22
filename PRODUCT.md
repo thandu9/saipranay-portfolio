@@ -19,3 +19,6 @@ A native horizontal gallery presents Geospatial Data Pipeline Engineering, Proje
 The user delegated design decisions and autonomous implementation. The explicit brief supplies product truth; no additional product interview is required. Respect keyboard users, reduced-motion preferences and responsive alternatives to dense desktop diagrams. Local Next.js App Router, TypeScript, Tailwind and Motion for React retain the existing architecture and working routes. No accounts, analytics, backend, payments, hosting or deployment are introduced.
 
 `DESIGN.md` and `.impeccable/design.json` describe the implemented design system. Validation evidence and limitations belong in the separate QA report; this document does not assert unperformed tests.
+
+## V5 content authority
+Use CONTENT_V5.md for career dates, roles, education, metrics and credential URLs. 180+ is a layer count, 4,000+ is supported project scope, 60% is recurring processing-time reduction. $28.5B is program context only. Resume stays hidden. Recognition remains explicitly user-supplied and unverified.

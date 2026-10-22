@@ -6,48 +6,37 @@ export const profile = {
   github: null as string | null,
   resume: null as string | null,
   award: {
-    title: "VDOT Hero Award",
+    title: "VDOT Recognition Award (2025)",
     verified: false,
-    url: null as string | null,
+    url: "https://drive.google.com/file/d/1yR23-5DRTFZg81nmveUT1qLucrRUCb80/view?usp=sharing",
   },
 };
 export const career = [
-  [
-    "2026 — Present",
-    "Business Analyst III",
-    "Supporting Virginia Department of Transportation",
-    "July 2026 – Present",
-  ],
-  [
-    "2025 — 2026",
-    "Data Specialist (GIS)",
-    "Supporting Virginia Department of Transportation",
-    "February 2025 – July 2026",
-  ],
+  ["2025 — Present", "Business Analyst 3", "VDOT", "February 2025 – Present"],
   [
     "2024 — 2025",
-    "Business System Analyst II",
-    "Chevron",
-    "September 2024 – January 2025",
-  ],
-  [
-    "2024",
-    "Enterprise AI & Machine Learning",
-    "People Tech Group Inc",
-    "August 2024 – October 2024",
+    "Business Systems Analyst",
+    "ASTA CRS",
+    "July 2024 – January 2025",
   ],
   [
     "2023 — 2024",
-    "Business Intelligence Analyst",
+    "Research Assistant",
     "Sacred Heart University",
-    "September 2023 – March 2024",
+    "September 2023 – April 2024",
   ],
   [
     "2017 — 2022",
-    "Data Analyst (Geospatial)",
-    "Southern Company",
+    "Business Analyst, Data & Analytics",
+    "Techmart",
     "September 2017 – October 2022",
   ],
+];
+export const careerDetails = [
+  "Portfolio analysis across 4,000+ projects and 9 districts. Funding and financial variance, delivery intelligence, Power BI semantic models, SQL/Python automation and stakeholder reporting. Reported 60% reduction in recurring processing time.",
+  "Translated business requirements into CRM reporting, Salesforce issue resolution, data validation and reporting automation. Reported 40% reduction in manual reporting effort.",
+  "Explored data visualization and cloud analytics through Microsoft Fabric architecture and Power BI.",
+  "Built SQL/Python reconciliation, operational reporting, Tableau analysis and Excel models. Reported 35% improvement in reporting accuracy and 30% reduction in validation effort.",
 ];
 export const credentials = [
   {
@@ -63,6 +52,11 @@ export const credentials = [
   {
     title: "Generative AI",
     issuer: "Databricks",
-    url: "https://credentials.databricks.com/b3ecfb24-49d9-4ac9-b1fc-ded7e8f8fb7a#acc.VuiaH9hr",
+    url: "https://credentials.databricks.com/b3ecfb24-49d9-4ac9-b1fc-ded7e8f8fb7a#acc.R48kP1W",
+  },
+  {
+    title: "VDOT Recognition Award (2025)",
+    issuer: "User-supplied recognition · not independently verified",
+    url: profile.award.url,
   },
 ];

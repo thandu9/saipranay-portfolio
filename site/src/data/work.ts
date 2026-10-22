@@ -38,7 +38,7 @@ export const studies: Study[] = [
     tradeoff:
       "In this conceptual recreation, invalid geometry is isolated before publication. This favors trustworthy downstream layers over the appearance of a fully successful refresh; exceptions remain visible for review.",
     outcome:
-      "My public professional profile describes integrating 180+ data layers and a 50–60% reduction in processing time. These are self-reported outcomes for the described work, not benchmark results from this demonstration.",
+      "180+ integrated geospatial data layers supported by spatial ETL and automated processing pipelines. SQL/Python automation reduced recurring processing time by 60%. These user-supplied professional outcomes are not benchmark results from this demonstration; layer count is not pipeline count.",
     stack: [
       "Python",
       "JavaScript",
@@ -73,7 +73,7 @@ export const studies: Study[] = [
     tradeoff:
       "The illustrative model uses one project per defined snapshot, making counts and average duration unambiguous. A historical model would need a snapshot date and a different grain to avoid double-counting projects. A date dimension would be added for calendar analysis.",
     outcome:
-      "The source describes project and financial intelligence in a 9-district operational context. The exhibit below shows the reasoning on six synthetic projects; it does not reproduce an organizational model or real project counts.",
+      "Portfolio analysis supports 4,000+ projects across 9 districts, including funding and financial variance analysis. The exhibit below shows the reasoning on six synthetic projects; it does not reproduce an organizational model or real project counts.",
     stack: ["SQL", "Python", "SharePoint", "Power BI", "DAX"],
     model: "modeling",
   },

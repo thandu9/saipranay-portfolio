@@ -1,0 +1,624 @@
+/* V5: editorial scale, warm paper, a quiet technical landscape. */
+:root {
+  --paper: #f5f2eb;
+  --ink: #252627;
+}
+html {
+  scroll-padding-top: 100px;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+.header {
+  background: rgba(245, 242, 235, 0.94);
+}
+.header nav {
+  gap: 22px;
+}
+.brand-hero {
+  position: relative;
+  padding-top: 45px;
+  overflow: hidden;
+}
+.brand-hero-main {
+  min-height: 710px;
+  display: block;
+  position: relative;
+}
+.brand-hero-copy {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.brand-hero-copy a {
+  pointer-events: auto;
+}
+.brand-hero h1 {
+  font-size: clamp(100px, 13.6vw, 210px);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+  max-width: none;
+  position: relative;
+  z-index: 3;
+}
+.hero-positioning {
+  margin-bottom: 40px;
+}
+.brand-value {
+  max-width: 390px;
+  margin-top: 38px;
+}
+.brand-hero .portrait-composition {
+  position: absolute;
+  right: 2%;
+  top: 90px;
+  width: 49%;
+  height: 590px;
+  z-index: 1;
+  transform: rotate(3deg);
+}
+.brand-hero .authentic-portrait {
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+  border-radius: 48% 48% 0 0;
+  filter: none;
+}
+.portrait-field {
+  display: none;
+}
+.brand-hero figcaption {
+  background: var(--paper);
+  padding: 15px 0;
+}
+.brand-signature {
+  position: relative;
+  z-index: 3;
+  margin-top: 10px;
+}
+.brand-signature > span {
+  font-size: clamp(42px, 6.9vw, 110px);
+  letter-spacing: -0.06em;
+}
+.noise-section {
+  background: #20222b;
+  color: #f4efed;
+}
+.noise-canvas {
+  position: relative;
+  background: radial-gradient(ellipse at center, #393141 0, transparent 70%);
+  overflow: hidden;
+}
+.neural-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.data-fragment {
+  font-size: 11px !important;
+  background: #252630cc !important;
+  color: #e4dff0 !important;
+  border: 0 !important;
+}
+.noise-conclusion h3 span {
+  color: #ffa17e;
+}
+.noise-note,
+.noise-state {
+  color: #bcb9c5;
+}
+.architecture-section,
+.technology-section {
+  padding: 110px 5.5%;
+  position: relative;
+}
+.architecture-heading,
+.technology-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+.architecture-heading h2,
+.technology-heading h2,
+.experience-section h2,
+.impact-v5 h2 {
+  font-size: clamp(40px, 5.2vw, 78px);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+.architecture-heading em,
+.technology-heading em,
+.experience-section em {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+.architecture-heading p,
+.technology-heading p {
+  color: #64635f;
+}
+.architecture-map {
+  height: 350px;
+  position: relative;
+  margin-top: 45px;
+}
+.architecture-map > svg,
+.architecture-stages {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.architecture-stage {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -25px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 125px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: #343535;
+}
+.stage-orb {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #c7beb3;
+  border-radius: 50%;
+  background: var(--paper);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.active .stage-orb {
+  background: #ea5835;
+  color: white;
+  border-color: #ea5835;
+  transform: scale(1.12);
+}
+.architecture-stage strong {
+  margin: 16px 0 5px;
+  font-size: 15px;
+}
+.architecture-stage small {
+  font-size: 10px;
+  color: #6c6660;
+}
+.stage-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8%;
+  padding: 35px 0;
+  border-top: 1px solid #cfc9bf;
+  min-height: 230px;
+}
+.stage-count {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #a64b31;
+}
+.stage-detail h3 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+.stage-detail p {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 590px;
+}
+.stage-detail a {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.architecture-actions {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #cfc9bf;
+  padding-top: 20px;
+  gap: 20px;
+}
+.architecture-actions > div {
+  display: flex;
+  gap: 25px;
+}
+.architecture-actions button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.architecture-disclaimer {
+  font-size: 11px;
+  color: #6c6660;
+  margin-top: 25px;
+}
+.technology-section {
+  background: #eae6df;
+}
+.technology-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8%;
+  margin-top: 55px;
+}
+.technology-tabs button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #c5bfb5;
+  padding: 24px 0;
+  text-align: left;
+  font-size: 18px;
+  cursor: pointer;
+}
+.technology-tabs button > span:first-child {
+  font-size: 11px;
+}
+.technology-tabs button[aria-selected="true"] {
+  color: #a93519;
+}
+.technology-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 220px;
+  align-content: center;
+}
+.technology-cloud span {
+  font-size: clamp(19px, 2.5vw, 36px);
+  letter-spacing: -0.04em;
+  padding: 8px 15px;
+  border: 1px solid #c9bfb4;
+  border-radius: 4px;
+}
+.technology-cloud span:nth-child(3n + 1) {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #a83d23;
+}
+.technology-panel > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #625b54;
+  max-width: 600px;
+}
+.impact-v5 {
+  background: #e7603d;
+  color: #241e1a;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  margin: 60px 0;
+}
+.impact-grid strong {
+  font-size: clamp(55px, 7vw, 105px);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+}
+.impact-grid h3 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+}
+.impact-grid p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.impact-context {
+  border-top: 1px solid #a6412b;
+  padding-top: 25px;
+  max-width: 900px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.experience-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+}
+.experience-intro > p {
+  max-width: 470px;
+  line-height: 1.7;
+}
+.career-accordion details {
+  border-bottom: 1px solid #c8c1b8;
+  padding: 25px 0;
+}
+.career-accordion summary {
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  padding-right: 30px;
+}
+.career-accordion summary::-webkit-details-marker {
+  display: none;
+}
+.career-accordion summary > span {
+  font-size: 11px;
+  color: #776f66;
+}
+.career-accordion h3 {
+  font-size: 29px;
+  margin: 14px 0 8px;
+  letter-spacing: -0.04em;
+}
+.career-accordion summary p {
+  font-size: 14px;
+}
+.career-accordion b {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  font-weight: 400;
+  font-size: 25px;
+}
+.career-accordion details[open] b {
+  transform: rotate(45deg);
+}
+.career-accordion details > div {
+  padding-top: 22px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+.career-accordion small {
+  color: #70675e;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+.anchor-alias {
+  position: absolute;
+  top: 0;
+}
+.contact-title {
+  font-size: clamp(65px, 10vw, 155px) !important;
+}
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tools span {
+  font-size: 11px;
+  border: 1px solid #c8bfb3;
+  padding: 6px 10px;
+}
+@media (max-width: 800px) {
+  .header nav {
+    gap: 13px;
+  }
+  .brand-hero-main {
+    min-height: 820px;
+  }
+  .brand-hero h1 {
+    font-size: 19vw;
+  }
+  .brand-hero .portrait-composition {
+    top: 200px;
+    width: 57%;
+    height: 430px;
+    right: 0;
+  }
+  .brand-value {
+    margin-top: 340px;
+    max-width: 440px;
+  }
+  .brand-signature {
+    margin-top: 0;
+  }
+  .architecture-section,
+  .technology-section {
+    padding: 75px 6%;
+  }
+  .architecture-heading,
+  .technology-heading {
+    display: block;
+  }
+  .architecture-map {
+    height: 560px;
+    margin-top: 20px;
+  }
+  .architecture-map > svg {
+    display: none;
+  }
+  .architecture-stage {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: auto;
+  }
+  .architecture-stages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  .architecture-stage {
+    left: auto;
+  }
+  .architecture-stage:last-child {
+    grid-column: 1/-1;
+  }
+  .architecture-stage strong {
+    margin: 10px 0 4px;
+  }
+  .stage-detail {
+    gap: 25px;
+    grid-template-columns: 1fr;
+  }
+  .stage-detail h3 {
+    margin: 8px 0;
+  }
+  .architecture-actions {
+    flex-wrap: wrap;
+  }
+  .technology-layout,
+  .experience-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .technology-tabs button {
+    padding: 17px 0;
+  }
+  .technology-cloud {
+    min-height: 170px;
+  }
+  .impact-grid {
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+  .impact-grid > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #a6412b;
+    padding-top: 20px;
+  }
+  .impact-grid strong {
+    grid-row: span 2;
+  }
+  .impact-grid h3 {
+    margin: 10px 0;
+  }
+  .impact-grid p {
+    margin: 0;
+  }
+  .noise-conclusion h3 {
+    font-size: 34px;
+  }
+  .data-fragment {
+    font-size: 9px !important;
+  }
+  .contact-title {
+    line-height: 1.05 !important;
+  }
+}
+@media (max-width: 480px) {
+  .header nav {
+    gap: 14px;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 8px;
+  }
+  .header nav a {
+    font-size: 11px;
+  }
+  .brand-hero-main {
+    min-height: 760px;
+  }
+  .brand-hero .portrait-composition {
+    top: 190px;
+    width: 75%;
+    height: 340px;
+    right: 4%;
+  }
+  .brand-hero h1 {
+    font-size: 20vw;
+  }
+  .hero-positioning {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+  .brand-value {
+    margin-top: 350px;
+    font-size: 16px;
+  }
+  .brand-actions {
+    gap: 10px;
+  }
+  .brand-actions .button {
+    font-size: 11px;
+    padding: 14px;
+  }
+  .brand-signature > span {
+    font-size: 10vw;
+  }
+  .brand-hero-foot {
+    font-size: 10px;
+  }
+  .architecture-heading h2,
+  .technology-heading h2,
+  .experience-section h2 {
+    font-size: 40px;
+  }
+  .impact-grid strong {
+    font-size: 61px;
+  }
+  .noise-canvas {
+    height: 310px;
+  }
+  .noise-section .noise-conclusion {
+    gap: 25px;
+  }
+  .architecture-stage small {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.active .stage-orb {
+  color: #25201d;
+}
+.career-accordion summary > span {
+  color: #6b6259;
+}
+
+.noise-canvas > .neural-flow {
+  display: block;
+}
+.slide-0 .slide-art {
+  background: #252b38;
+}
+.slide-1 .slide-art {
+  background: #e8e4dc;
+}
+.slide-2 .slide-art {
+  background: #e0dce9;
+}
+.credential-list a:hover,
+.credential-list a:focus-visible {
+  background: #eae4d9;
+  transform: translateX(4px);
+}
+.noise-architecture-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #dfcfca;
+  margin-bottom: 25px;
+}
+
+.gallery-proof {
+  display: block;
+  font-size: 11px;
+  margin: 15px 0;
+  color: #655c53;
+}
+.noise-architecture-labels {
+  opacity: 0.85;
+}

@@ -8,8 +8,8 @@ test("hero actions and contact navigation", async ({ page }) => {
   ).toBeVisible();
   await page.getByRole("link", { name: "Explore work", exact: true }).click();
   await expect(page).toHaveURL(/#work/);
-  await page.getByRole("link", { name: "Model", exact: true }).click();
-  await expect(page).toHaveURL(/#model/);
+  await page.getByRole("link", { name: "Expertise", exact: true }).click();
+  await expect(page).toHaveURL(/#expertise/);
   await page.getByRole("link", { name: "Contact", exact: true }).click();
   await expect(
     page.getByRole("link", { name: "Email Saipranay" }),

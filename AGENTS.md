@@ -10,3 +10,5 @@ Goal: ship an excellent locally runnable production-grade portfolio centered on 
 - Verification: inspect the rendered site at representative desktop/mobile breakpoints, run lint/build/tests if available, and fix failures before reporting. Summarize exact commands and real outcomes.
 - Operational guardrails: local-first. Do not buy a domain, deploy, connect third-party services, edit files outside the project, push to remote, or install a paid service without consent. Obtain permission for sensitive or destructive shell actions. No credentials in source.
 - Work independently on normal implementation decisions, document assumptions in `DESIGN.md`/`README.md`, request user input only for true missing assets or irreconcilable facts.
+
+V5 update: CONTENT_V5.md supersedes CONTENT_SOURCE.md where they conflict. Follow CREATIVE_DIRECTION_V5.md for current design. Older facts remain historical source evidence only; do not silently combine career chronologies.

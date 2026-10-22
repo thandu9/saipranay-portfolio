@@ -33,3 +33,17 @@ Authentic portrait bytes preserved; Next Image serves delivery optimizations. No
 - Final mobile Lighthouse: Performance 98, Accessibility 100, Best Practices 100, SEO 66 (intentional local indexing block). LCP 2.5s; CLS 0. Lab run, not a field performance guarantee.
 - Final captures reported no JavaScript page errors.
 - Independent review's two material fixes applied: explicit mobile caption whitespace and keyboard-accessible horizontally scrollable fact region. Browser test verifies latter in both engines. No independent post-fix whole-site approval is claimed.
+
+# V5 final verification — 2026-10-21
+- `./run-local.sh lint`: passed.
+- `./run-local.sh typecheck`: passed.
+- `./run-local.sh build`: passed, production static/partial routes generated.
+- `./run-local.sh test`: 3 passed.
+- `./run-local.sh e2e`: 22 passed across Chromium and WebKit.
+- Tested widths: 320, 390, 768, 1280, 1440, 1920; home and three cases have no horizontal page overflow.
+- Verified stage URL/history, optional schema filters, technology keyboard tabs, gallery controls/keyboard, case returns, exception controls, animation replay/skip/reduced motion, contact and four external credential targets.
+- Axe WCAG A/AA checks pass on home and delivery model. This is an automated check, not a complete manual conformance certification.
+- Inspected actual desktop/mobile hero, architecture, full-page and mobile noise screenshots. Corrected active-stage and timeline text contrast and mobile scene SVG visibility.
+- V4 Lighthouse scores are historical and were not rerun for V5. Firefox is unverified due to the previously documented local profile-launch failure.
+- Latest credential URLs are present exactly as supplied. The award document was not independently inspected and is labeled accordingly. Resume download remains hidden.
+- No deployment, external publication or remote push.

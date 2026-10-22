@@ -10,7 +10,11 @@ export function Hero({
 }) {
   const reduce = useReducedMotion();
   return (
-    <section className={`brand-hero ${variant}`} aria-labelledby="hero-title">
+    <section
+      className={`brand-hero ${variant}`}
+      id="home"
+      aria-labelledby="hero-title"
+    >
       <div className="brand-hero-main">
         <motion.div
           className="brand-hero-copy"
@@ -41,15 +45,15 @@ export function Hero({
             )}
           </motion.h1>
           <p className="brand-value">
-            I engineer systems that turn fragmented data into trusted
-            intelligence and meaningful business decisions.
+            I engineer scalable data pipelines, intelligent architectures, and
+            analytics that turn complexity into decisions.
           </p>
           <div className="brand-actions">
             <Link className="button primary" href="/#work">
               Explore work <Arrow diagonal />
             </Link>
-            <Link className="button secondary" href="/#model">
-              Explore model <Arrow />
+            <Link className="button secondary" href="/#expertise">
+              Explore architecture <Arrow />
             </Link>
           </div>
         </motion.div>

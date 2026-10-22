@@ -71,3 +71,6 @@ No deployment, remote push, purchases, backend, trackers or analytics. No invent
 `NEXT_PUBLIC_SITE_URL` is intentionally unset; index blocking is deliberate. For a later explicitly authorized deployment, set the real origin, review public claims, re-run tests and review indexing/metadata. No deployment configuration was activated.
 
 The dependency audit reports no production vulnerabilities. A development-only braces advisory remains in Next's lint toolchain; the available automated recommendation downgrades Next ESLint across major versions and is not safe to apply blindly. See QA_REPORT.md.
+
+## V5 preview
+Run `./run-local.sh start` from site/ for the built production preview, or `./run-local.sh dev` for development. Visit http://127.0.0.1:3000. CONTENT_V5.md is the current factual authority. No publication or remote push was performed.

@@ -106,6 +106,13 @@ export function Gallery() {
               </div>
               <div className="slide-summary">
                 <p>{s.summary}</p>
+                <small className="gallery-proof">
+                  {i === 0
+                    ? "180+ integrated layers · Automated spatial ETL"
+                    : i === 1
+                      ? "4,000+ projects · 9 districts"
+                      : "Identity reconciliation · Visible exceptions"}
+                </small>
                 <Link
                   className="text-link"
                   href={`/work/${s.slug}`}

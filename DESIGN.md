@@ -1,5 +1,5 @@
 ---
-name: Beyond the Data — V4
+name: Beyond the Data — V5
 description: Saipranay Thandu — engineering clarity from fragmented data.
 colors:
   porcelain: "#F5F2EB"
@@ -129,3 +129,8 @@ Native horizontal scrolling and CSS scroll snap support touch. Previous/next, pa
 - Don't loop the noise sequence, auto-advance the gallery or trap scrolling.
 - Don't present the career graph as a literal database schema.
 - Don't publish unsupported awards, metrics, credentials, resume or GitHub links.
+
+## V5 final direction (supersedes earlier composition notes)
+Oversized Manrope typography overlaps the unchanged authentic portrait on warm paper. The seven-stage source-to-decision architecture replaces the primary semantic graph; the dimensional model remains an optional working exhibit. Lavender/orange/blue flow paths connect bronze, silver and gold layers. The chaos scene uses deterministic SVG curves and particles and settles after three seconds, with replay, skip and reduced-motion completion. Technology tabs distinguish project practice from familiarity. Native details reveal the four updated career roles. CONTENT_V5.md is the current factual authority.
+
+Responsive rendering uses a two-column stage sequence on narrow screens, touch/keyboard gallery controls, horizontally scrollable fact tables and readable non-overlapping portrait composition. Final refinement corrected control/timeline contrast and restored the cinematic SVG on mobile.
