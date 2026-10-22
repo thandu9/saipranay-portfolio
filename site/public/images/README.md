@@ -1,2 +1,1 @@
-saipranay-portrait.png is the user-supplied authentic professional portrait. Its bytes and facial identity are unchanged. Next Image serves responsive optimized delivery variants; CSS only controls the rectangular crop. Do not retouch or replace this person's identity.
-Award proof is still unpublished. Resume and GitHub remain optional hidden configuration values in src/data/profile.ts.
+saipranay-portrait.png is the user-supplied professional portrait. The original image is preserved; Next Image provides responsive delivery and CSS controls the crop. It is a personal asset, not licensed for reuse.

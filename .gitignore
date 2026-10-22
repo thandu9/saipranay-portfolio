@@ -1,10 +1,50 @@
+# Dependencies, builds, caches, and local tooling
+node_modules/
+.next/
+out/
+build/
+coverage/
+.cache/
+.turbo/
 .tools/
 .taste-skill/
-site/node_modules/
-site/.next/
-site/test-results/
-site/playwright-report/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+playwright-report/
+test-results/
+*.log
 .DS_Store
 
-# Generated visual-review captures
-.impeccable/review/
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Backups and editor state
+*.bak
+*.backup
+*.orig
+*~
+.idea/
+.vscode/
+backups/
+
+# Local design tools, references, and authoring briefs (preserved on disk)
+.agents/
+.impeccable/
+design-references/
+/AGENTS.md
+/CONTENT*.md
+/CREATIVE_DIRECTION*.md
+/DESIGN_AUDIT.md
+/DESIGN_REVIEW.md
+/LOCAL_RUNBOOK.md
+/MASTER_CODEX_PROMPT.md
+/PLAN.md
+/PRODUCT.md
+/QA_REPORT.md
+/README_FIRST.md

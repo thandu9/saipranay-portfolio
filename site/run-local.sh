@@ -4,10 +4,10 @@ cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 if command -v node >/dev/null 2>&1; then
   runtime_node=$(command -v node)
 else
-  runtime_node=/Users/guest1/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node
+  runtime_node="$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
 fi
 if [ ! -x "$runtime_node" ]; then
-  echo 'Node.js 22 or newer is required. Install Node, then use npm install and npm run dev.' >&2
+  echo 'Node.js 22 or newer is required. Install Node, then use npm ci and npm run dev.' >&2
   exit 1
 fi
 export PATH="$(dirname "$runtime_node"):$PATH"
