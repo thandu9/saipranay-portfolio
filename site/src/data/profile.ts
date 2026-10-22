@@ -40,9 +40,14 @@ export const careerDetails = [
 ];
 export const credentials = [
   {
-    title: "Fabric Analytics Engineer Associate",
+    title: "Microsoft Certified Fabric Analytics Engineer Associate (DP-600)",
     issuer: "Microsoft Certified · DP-600",
     url: "https://learn.microsoft.com/api/credentials/share/en-us/SaipranayThandu-2350/B62BAADF4BEFBF14?sharingId=70B4580B23BCE69",
+  },
+  {
+    title: "VDOT Recognition Award (2025)",
+    issuer: "VDOT · Recognition",
+    url: profile.award.url,
   },
   {
     title: "SQL Advanced",
@@ -53,10 +58,5 @@ export const credentials = [
     title: "Generative AI",
     issuer: "Databricks",
     url: "https://credentials.databricks.com/b3ecfb24-49d9-4ac9-b1fc-ded7e8f8fb7a#acc.R48kP1W",
-  },
-  {
-    title: "VDOT Recognition Award (2025)",
-    issuer: "User-supplied recognition · not independently verified",
-    url: profile.award.url,
   },
 ];

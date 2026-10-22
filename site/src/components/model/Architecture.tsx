@@ -5,6 +5,15 @@ import Link from "next/link";
 import { stages } from "@/data/architecture";
 import { Schema } from "./Schema";
 import { Arrow } from "../ui/Arrow";
+const positions = [
+  [14, 64],
+  [24, 36],
+  [40, 19],
+  [60, 19],
+  [76, 36],
+  [86, 64],
+  [50, 85],
+];
 export function Architecture() {
   const [selected, setSelected] = useState(0);
   const [schema, setSchema] = useState(false);
@@ -28,95 +37,154 @@ export function Architecture() {
   }
   const stage = stages[selected];
   return (
-    <section id="expertise" className="architecture-section">
-      <span id="model" className="anchor-alias" />
-      <div className="architecture-heading">
+    <section id="expertise" className="intelligence-chapter">
+      <span id="model" />
+      <div className="intelligence-title">
         <h2>
           How I engineer
           <br />
           <em>intelligence.</em>
         </h2>
         <p>
-          From the first source to the final decision.
+          Seven layers. One continuous idea.
           <br />
-          Explore the thinking behind each layer.
+          Select a stage to explore the decisions within.
         </p>
       </div>
-      <div className="architecture-map">
-        <svg
-          viewBox="0 0 1000 310"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="arch-flow">
-              <stop stopColor="#f15a35" />
-              <stop offset=".5" stopColor="#9b8cbe" />
-              <stop offset="1" stopColor="#355a88" />
-            </linearGradient>
-          </defs>
-          {[0, 1, 2, 3].map((i) => (
-            <path
-              key={i}
-              d={`M80 ${180 + i * 7}C140 ${180 + i * 7} 150 ${105 + i * 7} 220 ${105 + i * 7}S300 ${180 + i * 7} 360 ${180 + i * 7}S435 ${90 + i * 7} 500 ${90 + i * 7}S580 ${180 + i * 7} 640 ${180 + i * 7}S710 ${105 + i * 7} 780 ${105 + i * 7}S855 ${180 + i * 7} 920 ${180 + i * 7}`}
-              stroke="url(#arch-flow)"
-              strokeWidth={i === 0 ? 2 : 0.7}
-              opacity={1 - i * 0.2}
+      <div className="intelligence-theatre">
+        <div className="strata-map">
+          <svg viewBox="0 0 1000 650" aria-hidden="true">
+            <defs>
+              <linearGradient id="strata-line" x1="0" y1="0" x2="1" y2="1">
+                <stop stopColor="#f15a38" />
+                <stop offset=".5" stopColor="#b3a3d2" />
+                <stop offset="1" stopColor="#729bce" />
+              </linearGradient>
+              <radialGradient id="strata-light">
+                <stop stopColor="#8e81ac" stopOpacity=".16" />
+                <stop offset="1" stopColor="#8e81ac" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <ellipse
+              cx="500"
+              cy="330"
+              rx="430"
+              ry="300"
+              fill="url(#strata-light)"
+            />
+            {Array.from({ length: 9 }, (_, i) => (
+              <ellipse
+                key={i}
+                cx="500"
+                cy={290 + i * 12}
+                rx={300 - i * 13}
+                ry={155 - i * 6}
+                transform={`rotate(-15 500 ${290 + i * 12})`}
+                fill="none"
+                stroke="url(#strata-line)"
+                strokeWidth={i === 0 ? 1.2 : 0.6}
+                opacity={0.65 - i * 0.045}
+              />
+            ))}
+            {positions.map(([x, y], i) => (
+              <motion.path
+                key={i}
+                initial={false}
+                animate={{
+                  opacity: selected === i ? 0.95 : 0.15,
+                  pathLength: 1,
+                }}
+                d={`M${x * 10} ${y * 6.5} C${x * 10} 330 500 ${y * 6.5} 500 320`}
+                stroke={selected === i ? "#f57958" : "#b1a9ce"}
+                strokeWidth={selected === i ? 1.5 : 0.7}
+                fill="none"
+                transition={{ duration: reduce ? 0 : 0.25 }}
+              />
+            ))}
+            <motion.circle
+              key={selected}
+              cx="500"
+              cy="320"
+              r="90"
+              fill="none"
+              stroke="#e1d6ef"
+              strokeWidth=".7"
+              initial={reduce ? false : { opacity: 0.7, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              style={{ transformOrigin: "500px 320px" }}
+            />
+            <circle cx="500" cy="320" r="78" fill="#1b1d28" />
+            <circle
+              cx="500"
+              cy="320"
+              r="105"
+              stroke="#9f93bb"
+              strokeOpacity=".2"
               fill="none"
             />
-          ))}
-          <motion.circle
-            key={selected}
-            initial={false}
-            animate={{ cx: stage.x * 10, cy: stage.y * 3.1 }}
-            transition={{ duration: reduce ? 0 : 0.5 }}
-            r="24"
-            fill="#f15a35"
-            opacity=".12"
-          />
-        </svg>
-        <div className="architecture-stages">
+          </svg>
+          <div className="strata-center" aria-hidden="true">
+            <span>{String(selected + 1).padStart(2, "0")}</span>
+            <small>{stage.title}</small>
+          </div>
           {stages.map((s, i) => (
             <button
               key={s.id}
-              className={`architecture-stage ${selected === i ? "active" : ""}`}
-              style={
-                { "--x": `${s.x}%`, "--y": `${s.y}%` } as React.CSSProperties
-              }
+              className={`strata-node ${selected === i ? "selected" : ""}`}
+              style={{
+                left: `${positions[i][0]}%`,
+                top: `${positions[i][1]}%`,
+              }}
               onClick={() => choose(i)}
+              onKeyDown={(e) => {
+                if (
+                  ["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)
+                ) {
+                  e.preventDefault();
+                  const n =
+                    e.key === "Home"
+                      ? 0
+                      : e.key === "End"
+                        ? 6
+                        : (i + (e.key === "ArrowRight" ? 1 : 6)) % 7;
+                  choose(n);
+                  document.getElementById(`stage-${n}`)?.focus();
+                }
+              }}
+              id={`stage-${i}`}
               aria-pressed={selected === i}
               aria-controls="stage-detail"
             >
-              <span className="stage-orb">
-                <span>{String(i + 1).padStart(2, "0")}</span>
+              <span className="strata-dot">
+                {String(i + 1).padStart(2, "0")}
               </span>
               <strong>{s.title}</strong>
-              <small>{s.caption}</small>
             </button>
           ))}
         </div>
-      </div>
-      <div className="stage-detail" id="stage-detail" aria-live="polite">
-        <div>
-          <span className="stage-count">
+        <div
+          className="intelligence-detail"
+          id="stage-detail"
+          aria-live="polite"
+        >
+          <span className="detail-sequence">
             {String(selected + 1).padStart(2, "0")} / 07
           </span>
           <h3>{stage.title}</h3>
-          <p>{stage.decision}</p>
-        </div>
-        <div>
+          <p className="stage-principle">{stage.decision}</p>
           <p>{stage.body}</p>
-          <div className="tools">
+          <ul>
             {stage.tools.map((t) => (
-              <span key={t}>{t}</span>
+              <li key={t}>{t}</li>
             ))}
-          </div>
+          </ul>
           <Link href={stage.href}>
-            Explore related work <Arrow diagonal />
+            See it in the work <Arrow diagonal />
           </Link>
         </div>
       </div>
-      <div className="architecture-actions">
+      <div className="intelligence-controls">
         <div>
           <button onClick={() => choose(0)}>Reset</button>
           <button onClick={() => choose((selected + 1) % 7)}>
@@ -128,10 +196,14 @@ export function Architecture() {
           <span aria-hidden="true">{schema ? "−" : "+"}</span>
         </button>
       </div>
-      {schema && <Schema />}
-      <p className="architecture-disclaimer">
-        Conceptual architecture across my practice. Technologies shown are not a
-        claim that every platform was deployed together or at one employer.
+      {schema && (
+        <div className="schema-reveal">
+          <Schema />
+        </div>
+      )}
+      <p className="scene-caption">
+        A conceptual reference architecture. Explore implementation experience
+        and broader platform knowledge below.
       </p>
     </section>
   );

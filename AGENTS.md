@@ -12,3 +12,5 @@ Goal: ship an excellent locally runnable production-grade portfolio centered on 
 - Work independently on normal implementation decisions, document assumptions in `DESIGN.md`/`README.md`, request user input only for true missing assets or irreconcilable facts.
 
 V5 update: CONTENT_V5.md supersedes CONTENT_SOURCE.md where they conflict. Follow CREATIVE_DIRECTION_V5.md for current design. Older facts remain historical source evidence only; do not silently combine career chronologies.
+
+V6 update: CREATIVE_DIRECTION_V6.md supersedes earlier design and conflicting content. The user's latest explicit claim is 180+ data pipelines (not inferred from layers). Use supplied award label without visible verification disclaimer; exact links and no invented details. Preserve V5 career facts, hide missing resume PDF. The primary visual system is midnight navy/off-white/orange.

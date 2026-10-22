@@ -6,43 +6,29 @@ test("hero actions and contact navigation", async ({ page }) => {
   await expect(
     page.getByRole("img", { name: /Saipranay Thandu/ }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Explore work", exact: true }).click();
+  await page
+    .getByRole("link", { name: "Discover the work", exact: true })
+    .click();
   await expect(page).toHaveURL(/#work/);
   await page.getByRole("link", { name: "Expertise", exact: true }).click();
   await expect(page).toHaveURL(/#expertise/);
   await page.getByRole("link", { name: "Contact", exact: true }).click();
   await expect(
-    page.getByRole("link", { name: "Email Saipranay" }),
+    page.locator("#contact").getByRole("link", { name: /Email Saipranay/ }),
   ).toHaveAttribute("href", "mailto:thandusaipranay@gmail.com");
   expect(errors).toEqual([]);
 });
-test("gallery buttons, keyboard and case links", async ({ page }) => {
+test("project narratives, stage controls and case links", async ({ page }) => {
   await page.goto("/#work");
-  await page.getByRole("button", { name: "Next project", exact: true }).click();
+  const story = page.locator("#story-1");
+  await story.getByRole("button", { name: "03 Publish" }).click();
   await expect(
-    page.getByRole("button", { name: /Show project 2/ }),
-  ).toHaveAttribute("aria-current", "true");
-  const gallery = page.getByRole("region", {
-    name: "Selected architecture case studies",
-  });
-  await gallery.focus();
-  await page.keyboard.press("ArrowRight");
-  await expect(
-    page.getByRole("button", { name: /Show project 3/ }),
-  ).toHaveAttribute("aria-current", "true");
-  await expect(
-    page.getByRole("button", { name: "Next project", exact: true }),
-  ).toBeDisabled();
+    story.getByRole("button", { name: "03 Publish" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(story.getByText(/Publish accepted records/)).toBeVisible();
   await page
-    .getByRole("button", { name: "Previous project", exact: true })
-    .click();
-  await expect(
-    page.getByRole("button", { name: /Show project 2/ }),
-  ).toHaveAttribute("aria-current", "true");
-  await page
-    .locator(".gallery-slide")
-    .nth(1)
-    .getByRole("link", { name: "Explore case study" })
+    .locator("#story-2")
+    .getByRole("link", { name: "Investigate delivery" })
     .click();
   await expect(page).toHaveURL(/work\/delivery-intelligence/);
 });
@@ -79,7 +65,7 @@ test("reduced motion starts and remains in completed state", async ({
     page.getByRole("button", { name: "Skip animation" }),
   ).toHaveCount(0);
 });
-test("all case pages and gallery remain within narrow viewports", async ({
+test("all case pages and stories remain within narrow viewports", async ({
   page,
 }) => {
   for (const width of [320, 390, 768, 1280, 1440, 1920]) {

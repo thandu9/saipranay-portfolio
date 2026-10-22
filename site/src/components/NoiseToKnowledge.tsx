@@ -1,229 +1,218 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
+import Link from "next/link";
 import { Arrow } from "./ui/Arrow";
-const fragments = [
-  { label: "src.roads", x: 8, y: 18, group: 0 },
-  { label: "2026-01-01", x: 38, y: 8, group: 0 },
-  { label: "layer_042", x: 75, y: 14, group: 0 },
-  { label: "key: P-001", x: 22, y: 67, group: 1 },
-  { label: "geometry ✓", x: 58, y: 83, group: 1 },
-  { label: "quality: pass", x: 85, y: 52, group: 1 },
-  { label: "Dim_Project", x: 9, y: 42, group: 2 },
-  { label: "ProjectKey →", x: 48, y: 40, group: 2 },
-  { label: "Fact_Delivery", x: 72, y: 72, group: 2 },
-  { label: "duration: 5y", x: 30, y: 88, group: 3 },
-  { label: "expected: 4y", x: 57, y: 16, group: 3 },
-  { label: "review risk", x: 89, y: 88, group: 3 },
-];
-
+const process = ["Extract", "Validate", "Model", "Decide"];
+const particles = Array.from({ length: 72 }, (_, i) => ({
+  x: 40 + ((i * 137) % 920),
+  y: 30 + ((i * 79) % 440),
+  group: i % 4,
+  angle: i * 2.39996,
+  radius: 22 + ((i * 17) % 45),
+}));
 export function NoiseToKnowledge() {
   const ref = useRef<HTMLElement>(null);
-  const canvas = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.25 });
   const reduce = useReducedMotion();
   const [phase, setPhase] = useState(3);
   const [run, setRun] = useState(0);
-  const [size, setSize] = useState({ width: 1000, height: 300 });
   const started = useRef(false);
   const skipped = useRef(false);
   useEffect(() => {
-    const el = canvas.current;
-    if (!el) return;
-    const observer = new ResizeObserver(([entry]) =>
-      setSize({
-        width: entry.contentRect.width,
-        height: entry.contentRect.height,
-      }),
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  useEffect(() => {
     if (!inView || reduce || started.current) return;
     started.current = true;
-    const id = setTimeout(() => setRun((n) => n + 1), 0);
-    return () => clearTimeout(id);
+    const t = setTimeout(() => setRun((n) => n + 1), 0);
+    return () => clearTimeout(t);
   }, [inView, reduce]);
   useEffect(() => {
-    if (run === 0 || reduce) return;
+    if (!run || reduce) return;
     const timers = [
       [0, 0],
-      [700, 1],
-      [1800, 2],
-      [3000, 3],
-    ].map(([delay, next]) =>
+      [650, 1],
+      [1550, 2],
+      [3200, 3],
+    ].map(([delay, p]) =>
       setTimeout(() => {
-        if (!skipped.current) setPhase(next);
+        if (!skipped.current) setPhase(p);
       }, delay),
     );
     return () => timers.forEach(clearTimeout);
   }, [run, reduce]);
   const stage = reduce ? 3 : phase;
   const aligned = stage >= 2;
-  const compact = size.width < 560;
   return (
     <section
-      className="noise-section"
+      className="signal-chapter"
       id="noise"
       ref={ref}
-      data-phase={
-        stage === 3
-          ? "clarity"
-          : stage === 2
-            ? "structure"
-            : stage === 1
-              ? "motion"
-              : "noise"
-      }
+      data-phase={["noise", "motion", "structure", "clarity"][stage]}
       aria-labelledby="noise-title"
     >
-      <div className="noise-heading">
+      <div className="signal-title">
         <h2 id="noise-title">
           From noise
           <br />
-          to knowledge.
+          <em>to knowledge.</em>
         </h2>
         <p>
-          Making the connections <br />
-          that change what comes next.
+          Information arrives fragmented.
+          <br />I give it a way forward.
         </p>
       </div>
-      <div className="noise-canvas" ref={canvas} aria-hidden="true">
-        <svg
-          className="neural-flow"
-          viewBox="0 0 1000 300"
-          preserveAspectRatio="none"
-        >
+      <div className="signal-scene" aria-hidden="true">
+        <svg viewBox="0 0 1000 500">
           <defs>
-            <linearGradient id="neural">
-              <stop stopColor="#fb7349" />
-              <stop offset=".5" stopColor="#c7b3ff" />
-              <stop offset="1" stopColor="#82aeef" />
+            <linearGradient id="signal-spectrum">
+              <stop stopColor="#F15A38" />
+              <stop offset=".5" stopColor="#b7aedf" />
+              <stop offset="1" stopColor="#8baee4" />
             </linearGradient>
+            <radialGradient id="signal-core">
+              <stop stopColor="#f4f1eb" stopOpacity=".2" />
+              <stop offset="1" stopColor="#f4f1eb" stopOpacity="0" />
+            </radialGradient>
           </defs>
-          {Array.from({ length: 24 }, (_, i) => (
+          {Array.from({ length: 16 }, (_, i) => (
             <motion.path
               key={i}
               initial={false}
               animate={{
                 d: aligned
-                  ? `M0 ${150 + i * 2} C180 ${i * 12} 250 ${300 - i * 7} 400 150 S650 ${i * 12} 1000 ${150 + i * 2}`
-                  : `M0 ${i * 13} C200 ${300 - i * 9} 550 ${i * 12} 1000 ${300 - i * 12}`,
-                opacity: aligned ? 0.45 : 0.18,
-              }}
-              transition={{ duration: reduce ? 0 : 1.2 }}
-              stroke="url(#neural)"
-              strokeWidth=".8"
-              fill="none"
-            />
-          ))}
-          {Array.from({ length: 64 }, (_, i) => (
-            <motion.circle
-              key={i}
-              r={i % 7 === 0 ? 3 : 1.5}
-              fill={i % 3 === 0 ? "#ff895d" : "#d4c4ff"}
-              initial={false}
-              animate={{
-                cx: aligned ? 150 + (i % 4) * 235 : ((i * 137) % 960) + 20,
-                cy: aligned
-                  ? 100 + Math.floor(i / 4) * 7
-                  : ((i * 67) % 270) + 15,
-                opacity: aligned ? 0.8 : 0.4,
+                  ? `M0 ${235 + i * 2} C160 ${120 + i * 12} 260 ${380 - i * 10} 380 250 S620 ${100 + i * 14} 860 250 S960 ${210 + i * 5} 1000 ${235 + i * 2}`
+                  : `M${i * 60} 0 C${900 - i * 40} ${i * 20} ${100 + i * 50} ${500 - i * 17} ${1000 - i * 55} 500`,
+                opacity: aligned ? 0.35 : 0.18,
               }}
               transition={{
-                duration: reduce ? 0 : 1,
-                delay: reduce ? 0 : i * 0.008,
+                duration: reduce ? 0 : 1.3,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+              stroke="url(#signal-spectrum)"
+              fill="none"
+              strokeWidth="1"
+            />
+          ))}
+          {process.map((label, i) => (
+            <motion.g
+              key={label}
+              initial={false}
+              animate={{ opacity: aligned ? 1 : 0, scale: aligned ? 1 : 0.8 }}
+              transition={{ duration: reduce ? 0 : 0.7 }}
+              style={{ transformOrigin: `${140 + i * 240}px 250px` }}
+            >
+              <circle
+                cx={140 + i * 240}
+                cy="250"
+                r="105"
+                fill="url(#signal-core)"
+              />
+              <circle
+                cx={140 + i * 240}
+                cy="250"
+                r="78"
+                stroke={i === 0 ? "#f15a38" : "#b1a9cf"}
+                strokeWidth=".7"
+                fill="none"
+              />
+              <circle
+                cx={140 + i * 240}
+                cy="250"
+                r="66"
+                stroke="#a5a4bb"
+                strokeOpacity=".25"
+                fill="none"
+              />
+              <text
+                x={140 + i * 240}
+                y="375"
+                textAnchor="middle"
+                fill="#e6e3ef"
+                fontSize="17"
+                fontFamily="sans-serif"
+              >
+                {label}
+              </text>
+            </motion.g>
+          ))}
+          {particles.map((p, i) => {
+            const x = 140 + p.group * 240 + Math.cos(p.angle) * p.radius;
+            const y = 250 + Math.sin(p.angle) * p.radius;
+            return (
+              <motion.circle
+                key={i}
+                r={i % 9 === 0 ? 5 : 2}
+                fill={i % 4 === 0 ? "#f57958" : "#c5bee3"}
+                initial={false}
+                animate={{
+                  cx: aligned ? x : stage === 1 ? 1000 - p.x : p.x,
+                  cy: aligned ? y : stage === 1 ? 500 - p.y : p.y,
+                  opacity: aligned ? 0.85 : 0.45,
+                }}
+                transition={{
+                  duration: reduce ? 0 : stage === 1 ? 0.8 : 1.15,
+                  delay: reduce ? 0 : i * 0.006,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+              />
+            );
+          })}
+          {[0, 1, 2, 3].map((i) => (
+            <motion.circle
+              key={`${run}-${i}`}
+              r="5"
+              fill="#f15a38"
+              initial={false}
+              animate={
+                stage === 1
+                  ? {
+                      cx: [140, 380, 620, 860],
+                      cy: [250, 160, 340, 250],
+                      opacity: [0, 1, 1, 0],
+                    }
+                  : { cx: 140 + i * 240, cy: 250, opacity: aligned ? 1 : 0 }
+              }
+              transition={{
+                duration: reduce ? 0 : 1.2,
+                delay: reduce ? 0 : i * 0.09,
               }}
             />
           ))}
         </svg>
-        {fragments.map((f, i) => {
-          const finalX = compact ? (f.group % 2) * 50 + 5 : f.group * 25 + 5;
-          const finalY = compact
-            ? Math.floor(f.group / 2) * 50 + 13 + (i % 3) * 9
-            : 24 + (i % 3) * 20;
-          return (
-            <motion.span
-              className={`data-fragment group-${f.group}`}
-              key={f.label}
-              style={{ left: 0, top: 0 }}
-              initial={false}
-              animate={{
-                x:
-                  ((aligned
-                    ? finalX
-                    : stage === 1
-                      ? (f.x + f.group * 8) % 75
-                      : f.x * 0.8) *
-                    size.width) /
-                  100,
-                y: ((aligned ? finalY : f.y * 0.85) * size.height) / 100,
-                rotate: aligned ? 0 : i % 2 ? 7 : -5,
-                opacity: 1,
-              }}
-              transition={{
-                duration: reduce ? 0 : 0.85,
-                delay: reduce ? 0 : i * 0.025,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              {f.label}
-            </motion.span>
-          );
-        })}
+        <div className="scene-coordinates">
+          <span>INPUT / UNSTRUCTURED</span>
+          <span>OUTPUT / DECISION READY</span>
+        </div>
       </div>
-      <div className="noise-architecture-labels" aria-hidden="true">
-        <span>Source</span>
-        <span>Validate</span>
-        <span>Model</span>
-        <span>Decide</span>
-      </div>
-      <div className="noise-conclusion">
+      <div className="signal-ending">
         <h3>
           Complexity is inevitable.
           <br />
           <span>Clarity is engineered.</span>
         </h3>
-        <div className="noise-actions">
-          <p className="noise-state" role="status">
-            {stage === 3
-              ? "Connected. Considered. Clear."
-              : stage === 2
-                ? "Structure emerges."
-                : stage === 1
-                  ? "Finding the relationships."
-                  : "Disconnected inputs."}
+        <div className="signal-controls">
+          <p role="status">
+            {
+              [
+                "Finding the signal.",
+                "Connecting the evidence.",
+                "Testing the structure.",
+                "A system you can trust.",
+              ][stage]
+            }
           </p>
           <div>
             <button
-              className="noise-replay"
+              aria-label="Replay data transformation"
               onClick={() => {
                 skipped.current = false;
                 setPhase(reduce ? 3 : 0);
                 setRun((n) => n + 1);
               }}
-              aria-label="Replay data transformation"
             >
-              Replay{" "}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10a8 8 0 1 1 1 8M4 4v6h6"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              Replay <span aria-hidden="true">↻</span>
             </button>
             {stage < 3 && (
               <button
-                className="noise-replay"
                 onClick={() => {
                   skipped.current = true;
                   setPhase(3);
@@ -232,14 +221,15 @@ export function NoiseToKnowledge() {
                 Skip animation
               </button>
             )}
-            <Link href="/#model">
-              Explore the architecture <Arrow />
+            <Link href="#expertise">
+              Step inside <Arrow diagonal />
             </Link>
           </div>
         </div>
       </div>
-      <p className="noise-note">
-        A conceptual transformation using deterministic, synthetic fragments.
+      <p className="scene-caption">
+        Conceptual transformation. Synthetic signals, real engineering
+        principles.
       </p>
     </section>
   );

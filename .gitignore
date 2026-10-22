@@ -5,3 +5,6 @@ site/.next/
 site/test-results/
 site/playwright-report/
 .DS_Store
+
+# Generated visual-review captures
+.impeccable/review/

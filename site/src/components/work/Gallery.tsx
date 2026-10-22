@@ -108,7 +108,7 @@ export function Gallery() {
                 <p>{s.summary}</p>
                 <small className="gallery-proof">
                   {i === 0
-                    ? "180+ integrated layers · Automated spatial ETL"
+                    ? "180+ data pipelines · Automated spatial ETL"
                     : i === 1
                       ? "4,000+ projects · 9 districts"
                       : "Identity reconciliation · Visible exceptions"}

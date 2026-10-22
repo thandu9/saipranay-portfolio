@@ -47,3 +47,18 @@ Authentic portrait bytes preserved; Next Image serves delivery optimizations. No
 - V4 Lighthouse scores are historical and were not rerun for V5. Firefox is unverified due to the previously documented local profile-launch failure.
 - Latest credential URLs are present exactly as supplied. The award document was not independently inspected and is labeled accordingly. Resume download remains hidden.
 - No deployment, external publication or remote push.
+
+# V6 verification — 2026-10-21
+- V5 backup: commit53f7b8f, local tagv5-before-v6.
+- Final production build, ESLint and standalone TypeScript checks passed.
+- 3 data integrity/measure tests and30 Chromium/WebKit browser tests passed.
+- Coverage: signal opening deadline/session memory/input skip/no-scroll-lock; reduced motion; native no-JavaScript identity/contact/case links; narrative stage controls; architecture selection/history/keyboard/schema filters; timeline tabs; four credentials; email/phone targets; all case routes; replay/skip stability; six viewport widths320,390,768,1280,1440,1920; Axe WCAG A/AA home and delivery-model checks.
+- No page errors during desktop/tablet/mobile screenshot pass.
+- Mobile Lighthouse:93 performance,100 accessibility,100 best practices,66 SEO. SEO is intentionally constrained by local-only noindex; no deployment configured. LCP3.2 seconds, CLS0, TBT20ms. These are local lab measurements, not field performance guarantees.
+- Visual refinement: tightened hero to reveal CTA; placed orbit behind portrait; enlarged mobile diagram labels; fixed overflowing delivery annotation; corrected accessible names and inherited case/table contrast; clean screenshots retain a separately focusable skip link.
+- Independent reviewer found no need for rebuild; final fix-verdict recorded separately.
+- Reference sites inspected live for hierarchy/resting states/transitions; no claim of frame-by-frame analysis of their opening animations. Five supplied visual references and authentic portrait inspected. Original portrait pixels preserved.
+- V6 user-supplied180+ pipeline claim supersedes V5 data-layer terminology. No new metrics inferred. Award links directly without extra award claims; no resume fabricated.
+- No purchases, deployment or remote push.
+
+Final independent visual verdict: **ship**. Reviewer confirmed the remaining mobile label correction and resolved all reviewed material findings.

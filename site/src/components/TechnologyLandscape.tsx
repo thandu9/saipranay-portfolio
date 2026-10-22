@@ -10,9 +10,9 @@ export function TechnologyLandscape() {
     <section className="technology-section">
       <div className="technology-heading">
         <h2>
-          The tools change.
+          Tools with purpose.
           <br />
-          <em>The thinking connects.</em>
+          <em>Knowledge in context.</em>
         </h2>
         <p>Explore the technical landscape.</p>
       </div>
@@ -53,9 +53,10 @@ export function TechnologyLandscape() {
           role="tabpanel"
           aria-labelledby={`technology-${active}`}
         >
-          <div className="technology-cloud">
+          <div className="technology-cloud" role="list">
             {group.items.map((t, i) => (
               <motion.span
+                role="listitem"
                 key={t}
                 initial={reduce ? false : { opacity: 0.4, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -1,116 +1,166 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T03:39:40.213030+00:00",
-  "title": "Design System: Beyond the Data \u2014 V4",
+  "generatedAt": "2026-10-22T03:02:11.015555+00:00",
+  "title": "Design System: Beyond the Data \u2014 V6",
   "extensions": {
+    "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Near-black night"
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Midnight navy"
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal orange"
+      },
+      "mint": {
+        "role": "secondary",
+        "displayName": "Muted lilac"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Campaign display",
+        "purpose": "Two-line hero identity."
+      },
+      "reflection": {
+        "displayName": "Editorial reflection",
+        "purpose": "Italic career narrative and reflective heading accents."
+      }
+    },
     "motion": [
       {
-        "name": "motion-fast",
-        "value": "180ms",
-        "purpose": "Declared brand timing token."
+        "name": "opening",
+        "value": "1750ms",
+        "purpose": "Finite, skippable first-session introduction; never locks scroll."
       },
       {
-        "name": "motion-main",
-        "value": "450ms",
-        "purpose": "Default Motion transition."
+        "name": "signal-clarity",
+        "value": "3200ms",
+        "purpose": "Noise transformation reaches its stable clarity phase."
       },
       {
-        "name": "motion-ease",
-        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Motion for React choreography."
+        "name": "opening-ease",
+        "value": "cubic-bezier(0.76, 0, 0.24, 1)",
+        "purpose": "Signal travel and opening wipe."
       },
       {
-        "name": "css-ease",
-        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
-        "purpose": "Retained CSS transitions."
+        "name": "default-motion",
+        "value": "450ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "MotionProvider default."
       },
       {
-        "name": "noise-settled",
-        "value": "3000ms",
-        "purpose": "Clarity phase; reduced motion directly receives completed state."
+        "name": "hover",
+        "value": "200ms",
+        "purpose": "Social, stage and ledger states."
       }
     ],
     "breakpoints": [
       {
-        "name": "brand-mobile",
-        "value": "560px"
+        "name": "wide",
+        "value": "1700px"
       },
       {
-        "name": "brand-tablet",
-        "value": "800px"
+        "name": "compact-desktop",
+        "value": "1000px"
       },
       {
-        "name": "brand-compact-desktop",
-        "value": "1100px"
+        "name": "mobile",
+        "value": "700px"
       },
       {
-        "name": "brand-wide",
-        "value": "1600px"
+        "name": "narrow",
+        "value": "370px"
       }
     ],
-    "shadows": []
+    "shadows": [
+      {
+        "name": "selected-career-ring",
+        "value": "inset 0 0 0 7px #1e202a",
+        "purpose": "Frames the orange selected career point; not surface elevation."
+      }
+    ]
   },
   "components": [
     {
-      "name": "Hero primary",
+      "name": "Circular social link",
       "kind": "button",
-      "description": "Extracted V4 component treatment.",
-      "html": "<button class=\"ds-primary\">Explore work \u2197</button>",
-      "css": ".ds-primary{font-family:var(--font-sans,sans-serif);font-size:13px;min-height:52px;padding:12px 20px;display:inline-flex;align-items:center;border-radius:0;cursor:pointer;transition:background-color 160ms,transform 160ms;background:var(--orange,#f15a35);color:var(--ink,#11151b);border:0}.ds-primary:hover{background:#ff704c}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}",
-      "refersTo": "hero-primary"
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<a class=\"ds-social\" href=\"mailto:thandusaipranay@gmail.com\" aria-label=\"Email\">@</a>",
+      "css": ".ds-social{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #67616e;border-radius:50%;color:var(--white,#f4f1eb);background:transparent;font:15px Manrope,sans-serif;text-decoration:none;transition:color .2s,background .2s,transform .2s}.ds-social:hover{background:#f4f1eb;color:#101219;transform:translateY(-3px)}.ds-social:focus-visible{outline:2px solid #ffac94;outline-offset:5px}",
+      "refersTo": "social-link"
     },
     {
-      "name": "Hero secondary",
+      "name": "Discover work",
       "kind": "button",
-      "description": "Extracted V4 component treatment.",
-      "html": "<button class=\"ds-secondary\">Explore model \u2192</button>",
-      "css": ".ds-secondary{font-family:var(--font-sans,sans-serif);font-size:13px;min-height:52px;padding:12px 20px;display:inline-flex;align-items:center;border-radius:0;cursor:pointer;transition:background-color 160ms,transform 160ms;background:transparent;color:var(--ink,#11151b);border:1px solid #aeb4aa}.ds-secondary:hover{background:#e7e8df}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}",
-      "refersTo": "hero-secondary"
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<a class=\"ds-discover\" href=\"#work\">Discover the work <span>\u2197</span></a>",
+      "css": ".ds-discover{display:flex;align-items:center;gap:22px;font:13px Manrope,sans-serif;color:var(--white,#f4f1eb);text-decoration:none}.ds-discover span{display:grid;place-items:center;width:60px;height:60px;border:1px solid #817786;border-radius:50%;transition:background .2s,color .2s,transform .2s}.ds-discover:hover span{background:#f15a38;color:#101219;transform:rotate(45deg)}.ds-discover:focus-visible{outline:2px solid #ffac94;outline-offset:5px}",
+      "refersTo": "round-arrow"
     },
     {
-      "name": "Dimension select",
-      "kind": "input",
-      "description": "Extracted V4 component treatment.",
-      "html": "<label class=\"ds-dimension\">Dim_Project<select class=\"ds-select\"><option>All projects</option><option>P-001</option></select></label>",
-      "css": ".ds-dimension{display:flex;flex-direction:column;gap:8px;background:#e2e7dc;padding:16px 14px;font-family:var(--font-sans,sans-serif);font-size:13px}.ds-select{min-height:44px;padding:6px;background:var(--paper,#f5f2eb);border:1px solid #b3bcae;border-radius:0;color:var(--ink,#11151b);font:inherit}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}"
+      "name": "Stage selector",
+      "kind": "button",
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<button class=\"ds-stage\" aria-pressed=\"true\"><span>01</span><strong>Sources</strong></button>",
+      "css": ".ds-stage{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px;border:0;background:none;color:#ffac94;font:12px Manrope,sans-serif;cursor:pointer}.ds-stage span{display:grid;place-items:center;width:35px;height:35px;border:1px solid #f15a38;border-radius:50%;background:#f15a38;color:#101219;font-size:10px}.ds-stage strong{font-weight:400;font-size:12px}.ds-stage:hover span{border-color:#f4f1eb}.ds-stage:active{transform:scale(.97)}.ds-stage:focus-visible{outline:2px solid #ffac94;outline-offset:5px}",
+      "refersTo": "selected-stage"
     },
     {
-      "name": "Minimal navigation",
+      "name": "Navigation",
       "kind": "nav",
-      "description": "Extracted V4 component treatment.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#model\">Model</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav{display:flex;gap:32px;font:13px var(--font-sans,sans-serif)}.ds-nav a{color:var(--ink,#11151b);text-decoration:none;padding:8px 0}.ds-nav a:last-child{border-bottom:1px solid currentColor}.ds-nav a:hover{color:var(--copper,#a84125)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-select:focus-visible,.ds-nav a:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-primary:active,.ds-secondary:active{transform:scale(.98)}"
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#expertise\">Expertise</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;gap:24px;background:#101219ee;font:12px Manrope,sans-serif}.ds-nav a{padding:10px 0;color:#d0ced7;text-decoration:none}.ds-nav a:hover{color:#ff9a7d}.ds-nav a:focus-visible{outline:2px solid #ffac94;outline-offset:5px}"
     },
     {
-      "name": "Gallery arrow",
-      "kind": "button",
-      "description": "Extracted V4 component treatment.",
-      "html": "<button class=\"ds-arrow\" aria-label=\"Next project\">\u2192</button>",
-      "css": ".ds-arrow{width:48px;height:48px;border-radius:50%;background:transparent;color:var(--ink,#11151b);border:1px solid #99a28f;cursor:pointer}.ds-arrow:hover:not(:disabled){background:#dce3d5}.ds-arrow:focus-visible{outline:2px solid var(--copper,#a84125);outline-offset:5px}.ds-arrow:active{transform:scale(.98)}.ds-arrow:disabled{opacity:.4;cursor:default}",
-      "refersTo": "gallery-arrow"
+      "name": "Dimension filter",
+      "kind": "input",
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<label class=\"ds-filter\">Project<select><option>All projects</option><option>P-001</option></select></label>",
+      "css": ".ds-filter{display:flex;flex-direction:column;gap:8px;padding:16px 14px;background:#222432;color:#f4f1eb;font:13px Manrope,sans-serif}.ds-filter select{min-height:44px;padding:6px;border:1px solid #74687e;border-radius:0;background:#222432;color:#f4f1eb;font:inherit}.ds-filter select:hover{border-color:#f4f1eb}.ds-filter select:focus-visible{outline:2px solid #ffac94;outline-offset:5px}"
+    },
+    {
+      "name": "Credential ledger row",
+      "kind": "custom",
+      "description": "V6 treatment extracted from the implemented system.",
+      "html": "<a class=\"ds-credential\" href=\"https://www.hackerrank.com/certificates/iframe/41e8a24dcee2\"><span><small>HackerRank</small>SQL Advanced</span><span aria-hidden=\"true\">\u2197</span></a>",
+      "css": ".ds-credential{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:30px 0;border-bottom:1px solid #47404f;color:#f4f1eb;font:24px Manrope,sans-serif;letter-spacing:-.035em;text-decoration:none;transition:transform .2s,color .2s}.ds-credential small{display:block;margin-bottom:10px;color:#bdb1ca;font-size:11px;letter-spacing:normal}.ds-credential:hover{color:#ffa58d;transform:translateX(5px)}.ds-credential:focus-visible{outline:2px solid #ffac94;outline-offset:5px}"
     }
   ],
   "narrative": {
-    "northStar": "Clarity, by design.",
-    "overview": "Saipranay Thandu is the primary identity; Beyond the Data is the creative identity. The Living Model names the signature technical explorer. Human presence and expressive typography establish connection, then ordered technical exhibits make the work inspectable. Warm reading surfaces, a brief dark transformation and concentrated forest exploration alternate energy with calm.",
+    "northStar": "The Signal",
+    "overview": "A personal campaign about engineering clarity. Authentic portrait, commanding Manrope, restrained Fraunces reflection, midnight surfaces and luminous conceptual structures lead into evidence and a human ending.",
     "keyCharacteristics": [
-      "Authentic portrait and unmistakable personal identity.",
-      "Editorial scale with restrained technical detail.",
-      "Deterministic transformation followed by stillness.",
-      "Native, inspectable interactions and factual evidence."
+      "Authentic photographic presence",
+      "Concentrated orange with lilac and blue depth",
+      "Full-width editorial work stories",
+      "Finite motion and inspectable technical detail"
     ],
-    "rules": [],
+    "rules": [
+      {
+        "name": "Concentrated signal",
+        "body": "Use orange for identity, selected controls and the leading impact metric.",
+        "section": "colors"
+      },
+      {
+        "name": "Tonal depth",
+        "body": "Use layered grounds, thin rings and translucent SVG light rather than raised cards.",
+        "section": "elevation"
+      }
+    ],
     "dos": [
-      "Do preserve the authentic portrait and keep type away from facial details.",
-      "Do make synthetic diagrams and self-reported outcomes explicit.",
-      "Do provide visible focus, keyboard operation and completed reduced-motion states.",
-      "Do retain typed content, URL state, case-study routes and functional schema filters."
+      "Do preserve the authentic face and source-backed claims.",
+      "Do retain keyboard controls, visible focus and completed reduced-motion states.",
+      "Do distinguish implementation from broader technical knowledge."
     ],
     "donts": [
-      "Don't retouch identity or substitute an AI-generated person.",
-      "Don't loop the noise sequence, auto-advance the gallery or trap scrolling.",
-      "Don't present the career graph as a literal database schema.",
-      "Don't publish unsupported awards, metrics, credentials, resume or GitHub links."
+      "Do not reintroduce warm V4/V5 surfaces or a home carousel.",
+      "Do not loop signature sequences or lock scrolling.",
+      "Do not present conceptual diagrams as production schemas."
     ]
   }
 }

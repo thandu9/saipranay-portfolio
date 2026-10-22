@@ -2,9 +2,10 @@ import { Hero } from "@/components/Hero";
 import { NoiseToKnowledge } from "@/components/NoiseToKnowledge";
 import { Architecture } from "@/components/model/Architecture";
 import { TechnologyLandscape } from "@/components/TechnologyLandscape";
-import { Gallery } from "@/components/work/Gallery";
+import { WorkStories } from "@/components/work/WorkStories";
+import { Journey } from "@/components/Journey";
 import { Impact } from "@/components/Impact";
-import { About, Credentials, Contact } from "@/components/Sections";
+import { Credentials, Contact } from "@/components/Sections";
 export default function Home() {
   return (
     <>
@@ -13,9 +14,9 @@ export default function Home() {
         <NoiseToKnowledge />
         <Architecture />
         <TechnologyLandscape />
-        <Gallery />
+        <WorkStories />
         <Impact />
-        <About />
+        <Journey />
         <Credentials />
       </main>
       <Contact />

@@ -24,7 +24,7 @@ export const studies: Study[] = [
     problem:
       "Heterogeneous spatial and operational sources need consistent alignment, quality checks, and repeatable publishing.",
     approach: [
-      "Integrate data layers for the Pathways for Planning platform.",
+      "Engineer repeatable data pipelines for the Pathways for Planning platform.",
       "Automate ETL, spatial alignment and quality controls.",
       "Support repeatable publishing for enterprise GIS and analytical use.",
     ],
@@ -38,7 +38,7 @@ export const studies: Study[] = [
     tradeoff:
       "In this conceptual recreation, invalid geometry is isolated before publication. This favors trustworthy downstream layers over the appearance of a fully successful refresh; exceptions remain visible for review.",
     outcome:
-      "180+ integrated geospatial data layers supported by spatial ETL and automated processing pipelines. SQL/Python automation reduced recurring processing time by 60%. These user-supplied professional outcomes are not benchmark results from this demonstration; layer count is not pipeline count.",
+      "180+ data pipelines for geospatial integration, spatial ETL and automated processing. SQL/Python automation reduced recurring processing time by 60%. These user-supplied professional outcomes are not benchmark results from this demonstration.",
     stack: [
       "Python",
       "JavaScript",
