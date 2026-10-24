@@ -1,6 +1,8 @@
-# Saipranay Thandu — Portfolio
+# Saipranay Thandu - Portfolio
 
 **Beyond the data.**
+
+https://thandu9.github.io/saipranay-portfolio/
 
 I work where data engineering, analytics, and business decisions meet. This portfolio makes that work visible: follow a pipeline, explore a semantic model, and see how raw information becomes something people can use.
 
